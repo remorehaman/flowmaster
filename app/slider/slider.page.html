@@ -1,0 +1,7 @@
+<ion-content style="height: 100px;">
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let slide of slider" class="slider-head">
+      <img src="{{siteUrl}}{{slide.imageName}}" alt="{{slide.imageName}}" />
+    </ion-slide>
+  </ion-slides>
+</ion-content>

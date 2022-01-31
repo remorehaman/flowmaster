@@ -1,0 +1,18 @@
+<div class="product_listing" >
+  <h2 *ngIf="showText" class="ion-text-center heading"><span>Our</span> Products</h2>
+  <div class="border"><span></span></div>
+  <div class="list_of_products" *ngFor="let products of product_list" >
+    <a [routerLink] = "['/productdetail',products.permalink]">
+      <ion-card class="products" style="padding: 20px;margin: 0 20px 30px 20px;">
+        <img src="{{products.imgSrc}}" alt="{{products.productImage}}" />
+        <h3 class="title">{{products.productName}}</h3>
+        <div class="desc" [innerHtml]="products.productDescription"></div>
+      </ion-card>
+    </a>
+  </div>
+</div>
+
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+  <ion-infinite-scroll-content loadingSpinner="dots" loadingText="Loading more products ...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>

@@ -1,0 +1,48 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <app-header></app-header>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="contact_content">
+    <h4 class="heading">Contact Us</h4><div class="border"><span></span></div>
+    <p class="desc">If you are interested in working with us then please drop us a line, we would love to hear from you.</p>
+
+    <div class="info_list">
+      <ion-list>
+        <ion-item lines="none" class="border_line">
+          <ion-avatar slot="start" class="img_block">
+            <img src="../../assets/icon/location.png" width="24" height="24"/>
+          </ion-avatar>
+          <ion-label>
+            <h2>{{contact_model?.siteAddress}}</h2>
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none" class="border_line">
+          <ion-avatar slot="start" class="img_block">
+            <img src="../../assets/icon/mail.png" width="24" height="24"/>
+          </ion-avatar>
+          <ion-label>
+            <h2>{{contact_model?.siteEmail}}</h2>
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none" class="border_line">
+          <ion-avatar slot="start" class="img_block">
+            <img src="../../assets/icon/call.png" width="24" height="24"/>
+          </ion-avatar>
+          <ion-label>
+            <h2>{{contact_model?.sitePhone}}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>  
+  </div>
+
+  <div class="map">
+    <iframe src="https://maps.google.it/maps?q=Lyre, Clonakilty, Co Cork&output=embed" width="100%" height="225" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </div>
+</ion-content>
+<ion-footer>
+  <app-footer></app-footer>
+</ion-footer>

@@ -1,0 +1,196 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <app-header></app-header>
+</ion-header>
+
+<ion-content>
+  <div class="address">
+    <ion-icon name="arrow-back" style="font-size: 20px; margin: 0 0 0 20px;"></ion-icon>
+    <ion-title style="margin: 0 0 10px 0;"><span >My</span>Address</ion-title>
+    <div class="address_body">
+      <div class="addressform_section"> 
+        <form [formGroup]="addressModel.formGroup">    
+          <ion-list>
+
+            <ion-label >Name</ion-label>
+            <ion-item>  
+              <ion-input type="text" formControlName="fullnameControl"         
+                [(ngModel)]="addressModel.fullname"
+                name="fullname" 
+                [required]="true" style="padding: 0 !important;"
+                [attr.aria-invalid]="addressModel.formGroup.controls['fullnameControl'].invalid && addressModel.formGroup.controls['fullnameControl'].touched ? true : null" >
+              </ion-input>
+              
+            </ion-item>
+            <div class="error_field">
+              <ng-container *ngIf="addressModel.formGroup.controls['fullnameControl'].dirty">
+                <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['fullnameControl'].dirty && addressModel.formGroup.controls['fullnameControl'].hasError('required')">
+                  Name is required!
+                </p>
+                <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['fullnameControl'].dirty && addressModel.formGroup.controls['fullnameControl'].hasError('pattern')">
+                  Only alphanumeric characters are permitted!
+                </p>                  
+              </ng-container>         
+            </div>
+
+
+            <ion-label >Phone No</ion-label>
+            <ion-item>
+            
+                <ion-input type="number"  name="phone" [(ngModel)]="addressModel.phone" formControlName="phoneControl" 
+                [required]="true"        
+                [attr.aria-invalid]="addressModel.formGroup.controls['phoneControl'].invalid && addressModel.formGroup.controls['phoneControl'].touched ? true : null" ></ion-input>
+              
+              </ion-item>
+              <div class="error_field">
+                <ng-container *ngIf="addressModel.formGroup.controls['phoneControl'].dirty">
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['phoneControl'].dirty && addressModel.formGroup.controls['phoneControl'].hasError('required')">
+                    Phone Number is required!
+                  </p>
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['phoneControl'].dirty && addressModel.formGroup.controls['phoneControl'].hasError('pattern')">
+                    Please enter a valid phone number.
+                  </p>  
+                </ng-container>      
+              </div>
+            
+              <ion-label >Address Lane</ion-label>
+              <ion-item>        
+                  <ion-input type="text" formControlName="addressControl" [(ngModel)]="addressModel.address" name="address" 
+                  
+                  [required]="true" style="padding: 0 !important;"
+                  [attr.aria-invalid]="addressModel.formGroup.controls['addressControl'].invalid && addressModel.formGroup.controls['addressControl'].touched ? true : null" ></ion-input>             
+              </ion-item>
+              <div class="error_field">
+                <ng-container *ngIf="addressModel.formGroup.controls['addressControl'].dirty">
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['addressControl'].dirty && addressModel.formGroup.controls['addressControl'].hasError('required')">
+                    Address is required!
+                  </p>
+                                  
+                </ng-container>         
+              </div>
+              
+            <!-- <ion-label >Email</ion-label>
+              <ion-item>
+               
+                <ion-input type="email" formControlName="emailControl" 
+                [(ngModel)]="addressModel.email" name="email" 
+                [attr.aria-invalid]="addressModel.formGroup.controls['emailControl'].invalid && addressModel.formGroup.controls['emailControl'].touched ? true : null" ></ion-input>
+              
+              </ion-item>
+              <div class="error_field">
+                <ng-container *ngIf="addressModel.formGroup.controls['emailControl'].dirty">
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['emailControl'].dirty && addressModel.formGroup.controls['emailControl'].hasError('required')">
+                    Email is required!
+                  </p>
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['emailControl'].dirty && addressModel.formGroup.controls['emailControl'].hasError('email')">
+                    Please enter a valid email address.
+                  </p>  
+                </ng-container>     
+              </div>          -->
+              
+              <ion-label >Country</ion-label>
+              <ion-item>        
+                  <ion-input type="text" formControlName="countryControl" [(ngModel)]="addressModel.country" name="country" 
+
+                  [required]="true" style="padding: 0 !important;"
+                  [attr.aria-invalid]="addressModel.formGroup.controls['countryControl'].invalid && addressModel.formGroup.controls['countryControl'].touched ? true : null" ></ion-input>             
+              </ion-item>
+              <div class="error_field">
+                <ng-container *ngIf="addressModel.formGroup.controls['countryControl'].dirty">
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['countryControl'].dirty && addressModel.formGroup.controls['countryControl'].hasError('required')">
+                    Country is required!
+                  </p>
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['countryControl'].dirty && addressModel.formGroup.controls['countryControl'].hasError('pattern')">
+                    Only alphanumeric characters are permitted!
+                  </p>                  
+                </ng-container>         
+              </div> 
+            
+
+              <ion-label >State</ion-label>
+              <ion-item>        
+                  <ion-input type="text" formControlName="stateControl" [(ngModel)]="addressModel.state" name="state" 
+
+                  [required]="true" style="padding: 0 !important;"
+                  [attr.aria-invalid]="addressModel.formGroup.controls['stateControl'].invalid && addressModel.formGroup.controls['stateControl'].touched ? true : null" ></ion-input>             
+              </ion-item>
+              <div class="error_field">
+                <ng-container *ngIf="addressModel.formGroup.controls['stateControl'].dirty">
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['stateControl'].dirty && addressModel.formGroup.controls['stateControl'].hasError('required')">
+                    State is required!
+                  </p>
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['stateControl'].dirty && addressModel.formGroup.controls['stateControl'].hasError('pattern')">
+                    Only alphanumeric characters are permitted!
+                  </p>                  
+                </ng-container>         
+              </div> 
+
+              <!-- <ion-label >City</ion-label>
+              <ion-item>        
+                  <ion-input type="text" formControlName="cityControl" [(ngModel)]="addressModel.city" name="city" 
+
+                  [required]="true" style="padding: 0 !important;"
+                  [attr.aria-invalid]="addressModel.formGroup.controls['cityControl'].invalid && addressModel.formGroup.controls['cityControl'].touched ? true : null" ></ion-input>             
+              </ion-item>
+              <div class="error_field">
+                <ng-container *ngIf="addressModel.formGroup.controls['cityControl'].dirty">
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['cityControl'].dirty && addressModel.formGroup.controls['cityControl'].hasError('required')">
+                    City is required!
+                  </p>
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['cityControl'].dirty && addressModel.formGroup.controls['cityControl'].hasError('pattern')">
+                    Only alphanumeric characters are permitted!
+                  </p>                  
+                </ng-container>         
+              </div> 
+               -->
+
+              <ion-label >Zip</ion-label>
+              <ion-item>        
+                  <ion-input type="text" formControlName="zipControl" [(ngModel)]="addressModel.zip" name="zip" 
+
+                  [required]="true" style="padding: 0 !important;"
+                  [attr.aria-invalid]="addressModel.formGroup.controls['zipControl'].invalid && addressModel.formGroup.controls['zipControl'].touched ? true : null" ></ion-input>             
+              </ion-item>
+              <div class="error_field">
+                <ng-container *ngIf="addressModel.formGroup.controls['zipControl'].dirty">
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['zipControl'].dirty && addressModel.formGroup.controls['zipControl'].hasError('required')">
+                    Zip is required!
+                  </p>
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['zipControl'].dirty && addressModel.formGroup.controls['zipControl'].hasError('pattern')">
+                    Only alphanumeric characters are permitted!
+                  </p>                  
+                </ng-container>         
+              </div> 
+          
+              <!-- <ion-label >Landmark</ion-label>
+              <ion-item>        
+                  <ion-input type="text" formControlName="landmarkControl" [(ngModel)]="addressModel.landmark" name="landmark" 
+
+                  [required]="true" style="padding: 0 !important;"
+                  [attr.aria-invalid]="addressModel.formGroup.controls['landmark'].invalid && addressModel.formGroup.controls['landmarkControl'].touched ? true : null" ></ion-input>             
+              </ion-item>
+              <div class="error_field">
+                <ng-container *ngIf="addressModel.formGroup.controls['landmarkControl'].dirty">
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['landmarkControl'].dirty && addressModel.formGroup.controls['landmarkControl'].hasError('required')">
+                    Landmark is required!
+                  </p>
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="addressModel.formGroup.controls['landmarkControl'].dirty && addressModel.formGroup.controls['landmarkControl'].hasError('pattern')">
+                    Only alphanumeric characters are permitted!
+                  </p>                  
+                </ng-container>         
+              </div>  -->
+
+
+          </ion-list>
+          <div class="button button_submit">       
+            <ion-button type="submit" class="form-control"  id="profile" (click)="addressadd()"status="success" [disabled]="!addressModel.formGroup.valid"  style="border-radius: 20px;overflow: hidden;margin: 0 0 20px 0;height: 45px;" expand="block" >Add Address</ion-button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+      
+</ion-content>
+
+<ion-footer>
+  <app-footer></app-footer>
+</ion-footer>

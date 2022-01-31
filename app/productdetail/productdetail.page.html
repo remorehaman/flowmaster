@@ -1,0 +1,70 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <app-header></app-header>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="product_details">
+    <div class="content">
+      <div class="galleries" >
+        <ion-slides pager="true" [options]="slideOpts">
+          <ion-slide *ngFor="let productGallries of gallery">
+            <img src="{{productGallries?.imgSrc}}" alt="{{productGallries?.productImage}}">
+          </ion-slide>    
+        </ion-slides>
+      </div>
+
+      <div class="content_wrap">
+        <h3 class="title">{{productData?.productName}}</h3>
+        <div class="desc" [innerHtml] = "productData?.productDescription"></div>
+      </div>
+    </div>
+
+    <div class="types_product"  *ngIf="showtypes">
+      <div class="product_attribute" >
+        <h4 class="txt_decoration">Type</h4>
+        <select name="attribute" (change)="typeDropDownChanged($event.target.selectedIndex)">      
+          <option *ngFor="let attribute of productAttribute" value="{{attribute.attributeType}}">{{attribute.attributeType}}</option>
+        </select>
+      </div>
+
+      <!-- ----------------product size-------- -->
+
+      <div class="product_size">
+        <!-- <div class="product_size" *ngFor="let productSize of size">  </div> -->
+        <h4 class="txt_decoration">Size</h4>
+        <select name="productSize" (change) = "attrpriceChange($event.target.selectedIndex)">
+          <option *ngFor="let productSize of productAttributeSize" value="">
+            {{productSize.attributeSize}}
+          </option>
+        </select>
+      </div>
+    
+      <div class="quantity" *ngIf="showQuantity">
+        <h4 class="txt_decoration">Quantity:</h4>
+        <input type="number"  readonly="" class="input-text qty" [value]="countQuantity" name="quantity"  title="Qty" placeholder="" inputmode="numeric" id="countquantity">                                
+        <div class="increment_decrement_button">
+          <input type="button" value="+" class="plus" (click) ="increase()"> 
+          <input type="button" value= "-"  class="minus" (click) ="derease()">  
+        </div>
+      </div>
+
+      <div class="attribute_price">
+        <p><span>{{attrPrice | currency:"EUR":"symbol"}}</span> (ex VAT)</p>
+      </div>
+    </div>  
+
+    <div class="addtocart" *ngIf="showCartbtn" style="text-align: center; margin: 20px 0 20px 0;">
+      <ion-button color="primary" (click)="addtoCart()">Add to cart</ion-button>
+    </div>
+    
+    <!-- ---------------related products---------- -->
+     
+    <app-relatedproduct [relatedProduct] = "relatedProduct"></app-relatedproduct>
+
+    <!-- ---------------related products end ---------- -->
+  </div>
+
+</ion-content>
+<ion-footer>
+  <app-footer></app-footer>
+</ion-footer>

@@ -1,0 +1,141 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <app-header></app-header>
+</ion-header>
+<ion-content>
+    <div class="myprofile">
+      <ion-icon name="arrow-back" style="font-size: 20px; margin: 0 0 0 20px;"></ion-icon>
+      <ion-title style="margin: 0 0 10px 0;"><span >My</span>Profile</ion-title>
+      <div class="myprofile_body">
+        <div class="myprofileform_section"> 
+
+        <form [formGroup]="profileModel.formGroup">    
+          <ion-list>
+    
+            <ion-label >Name</ion-label>
+            <ion-item>  
+              <!-- {{user_data.fullname}}          -->
+              <ion-input type="text" formControlName="fullnameControl"         
+                [(ngModel)]="user_data.fullname"
+                name="fullname" 
+                [required]="true" style="padding: 0 !important;"
+                [attr.aria-invalid]="profileModel.formGroup.controls['fullnameControl'].invalid && profileModel.formGroup.controls['fullnameControl'].touched ? true : null" >
+              </ion-input>
+              
+            </ion-item>
+            <div class="error_field">
+              <ng-container *ngIf="profileModel.formGroup.controls['fullnameControl'].dirty">
+                <p class="caption status-danger" style="padding-top: 5px;" *ngIf="profileModel.formGroup.controls['fullnameControl'].dirty && profileModel.formGroup.controls['fullnameControl'].hasError('required')">
+                  Name is required!
+                </p>
+                <p class="caption status-danger" style="padding-top: 5px;" *ngIf="profileModel.formGroup.controls['fullnameControl'].dirty && profileModel.formGroup.controls['fullnameControl'].hasError('pattern')">
+                  Only alphanumeric characters are permitted!
+                </p>                  
+              </ng-container>         
+            </div>
+    
+            <!-- <ion-label >Address Lane</ion-label>
+             <ion-item>        
+                <ion-input type="text" formControlName="addressControl" [(ngModel)]="profileModel.address" name="address" 
+                
+                [required]="true" style="padding: 0 !important;"
+                [attr.aria-invalid]="profileModel.formGroup.controls['addressControl'].invalid && profileModel.formGroup.controls['addressControl'].touched ? true : null" ></ion-input>             
+            </ion-item>
+            <div class="error_field">
+              <ng-container *ngIf="profileModel.formGroup.controls['addressControl'].dirty">
+                <p class="caption status-danger" style="padding-top: 5px;" *ngIf="profileModel.formGroup.controls['addressControl'].dirty && profileModel.formGroup.controls['addressControl'].hasError('required')">
+                  Address is required!
+                </p>
+                                
+              </ng-container>         
+            </div>
+    
+            <ion-label >City</ion-label>
+            <ion-item>        
+                <ion-input type="text" formControlName="cityControl" [(ngModel)]="profileModel.city" name="city" 
+
+                [required]="true" style="padding: 0 !important;"
+                [attr.aria-invalid]="profileModel.formGroup.controls['cityControl'].invalid && profileModel.formGroup.controls['cityControl'].touched ? true : null" ></ion-input>             
+            </ion-item>
+            <div class="error_field">
+              <ng-container *ngIf="profileModel.formGroup.controls['cityControl'].dirty">
+                <p class="caption status-danger" style="padding-top: 5px;" *ngIf="profileModel.formGroup.controls['cityControl'].dirty && profileModel.formGroup.controls['cityControl'].hasError('required')">
+                  City is required!
+                </p>
+                <p class="caption status-danger" style="padding-top: 5px;" *ngIf="profileModel.formGroup.controls['cityControl'].dirty && profileModel.formGroup.controls['cityControl'].hasError('pattern')">
+                  Only alphanumeric characters are permitted!
+                </p>                  
+              </ng-container>         
+            </div> -->
+          
+            <ion-label >Email</ion-label>
+              <ion-item>
+                <!-- {{user_data.email}}     -->
+                <ion-input type="email" formControlName="emailControl" 
+                [(ngModel)]="user_data.email" name="email" 
+                [attr.aria-invalid]="profileModel.formGroup.controls['emailControl'].invalid && profileModel.formGroup.controls['emailControl'].touched ? true : null" ></ion-input>
+               
+              </ion-item>
+              <div class="error_field">
+                <ng-container *ngIf="profileModel.formGroup.controls['emailControl'].dirty">
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="profileModel.formGroup.controls['emailControl'].dirty && profileModel.formGroup.controls['emailControl'].hasError('required')">
+                    Email is required!
+                  </p>
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="profileModel.formGroup.controls['emailControl'].dirty && profileModel.formGroup.controls['emailControl'].hasError('email')">
+                    Please enter a valid email address.
+                  </p>  
+                </ng-container>     
+              </div>         
+    
+            <ion-label >Phone No</ion-label>
+            <ion-item>
+                <!-- {{user_data.phone}}     -->
+                <ion-input type="number"  name="phone" [(ngModel)]="user_data.phone" formControlName="phoneControl" 
+                [required]="true"        
+                [attr.aria-invalid]="profileModel.formGroup.controls['phoneControl'].invalid && profileModel.formGroup.controls['phoneControl'].touched ? true : null" ></ion-input>
+              
+              </ion-item>
+              <div class="error_field">
+                <ng-container *ngIf="profileModel.formGroup.controls['phoneControl'].dirty">
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="profileModel.formGroup.controls['phoneControl'].dirty && profileModel.formGroup.controls['phoneControl'].hasError('required')">
+                    Phone Number is required!
+                  </p>
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="profileModel.formGroup.controls['phoneControl'].dirty && profileModel.formGroup.controls['phoneControl'].hasError('pattern')">
+                    Please enter a valid phone number.
+                  </p>  
+                </ng-container>      
+              </div>
+
+              <ion-label >Gender</ion-label>
+              <ion-item>        
+                  <!-- <ion-input type="text" formControlName="genderControl"  name="gender" 
+                    [required]="true" style="padding: 0 !important;"
+                    [attr.aria-invalid]="profileModel.formGroup.controls['genderControl'].invalid && profileModel.formGroup.controls['genderControl'].touched ? true : null" >
+                  </ion-input>              -->
+                  <select name="gender" formControlName="genderControl" [(ngModel)]="user_data.gender"   [required]="true" style="padding: 0 !important;width: 100%; border: none !important;outline: none !important;"
+                    [attr.aria-invalid]="profileModel.formGroup.controls['genderControl'].invalid && profileModel.formGroup.controls['genderControl'].touched ? true : null" >
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>      
+                </ion-item>
+              <div class="error_field">
+                <ng-container *ngIf="profileModel.formGroup.controls['genderControl'].dirty">
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="profileModel.formGroup.controls['genderControl'].dirty && profileModel.formGroup.controls['genderControl'].hasError('required')">
+                      Gender is required!
+                  </p>
+                  <p class="caption status-danger" style="padding-top: 5px;" *ngIf="profileModel.formGroup.controls['genderControl'].dirty && profileModel.formGroup.controls['genderControl'].hasError('pattern')">
+                    Only alphanumeric characters are permitted!
+                  </p>                  
+                </ng-container>         
+              </div>
+          </ion-list>
+          <div class="button button_submit">       
+            <ion-button type="submit" class="form-control"  id="profile" (click)="updateProfile()"status="success" [disabled]="!profileModel.formGroup.valid"  style="border-radius: 20px;overflow: hidden;margin: 0 0 20px 0;height: 45px;" expand="block" >Update Profile</ion-button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    </ion-content>
+    <ion-footer>
+      <app-footer></app-footer>
+    </ion-footer>

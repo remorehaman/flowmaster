@@ -1,0 +1,15 @@
+.launching_screen figure{
+    margin: 0;
+    position: absolute;
+    top: 35%;
+}
+.launching_screen{
+    width: 100%;
+    height: 100%;
+    background-image: url(/assets/icon/33.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    position: relative;
+}

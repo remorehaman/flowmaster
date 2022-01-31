@@ -1,0 +1,32 @@
+.addressList h4{
+    font-size: 15px;
+    font-weight: 700;
+    color: #002b6c;
+}
+.addressList h4 span{
+    display: inline-block;
+    font-weight: 600;
+    color: #000;
+}
+.card_content{
+    padding:15px 0 0 0;
+}
+ion-card{
+    padding: 15px;
+    margin-top: 25px;
+}
+.edit_delete{
+    float: right;
+}
+.edit,.delete{
+    display: inline-block;
+    font-size: 20px;
+  
+}
+.edit{
+    color: #3f77dd;
+    margin: 0 5px 0 0px;
+}
+.delete{
+    color: #e30505;
+}

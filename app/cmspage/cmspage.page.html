@@ -1,0 +1,19 @@
+
+<ion-header [translucent]="true" class="ion-no-border">
+  <app-header></app-header>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="cms_content" *ngFor="let slug of cmsContentData">
+    <h4 class="heading" [innerHtml]="slug.contentHeading"></h4><div class="border"><span></span></div>
+    <div class="desc" [innerHtml] = "slug.contentDescription"></div>
+    <figure>
+      <img src="{{slug.imageSrc}}" alt="{{slug.contentHeading}}">
+    </figure>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <app-footer></app-footer>
+</ion-footer>

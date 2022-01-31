@@ -1,0 +1,32 @@
+.top-header{display: flex; align-items: center; justify-content: space-between; padding-right: 16px;}
+.logo{width: 160px; margin: 0 auto;}
+.header-rpanel {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    border-radius: 4px;
+}
+.header-cart{
+    position: relative;
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+ion-badge{ 
+    position: absolute;
+    color: #fff;
+    top: -2px;
+    right: -4px;
+    font-size: 10px;
+    padding: 2px 2px 2px 4px;
+    z-index: 1;
+    background: #E5AE4C;
+    border-radius: 100%;
+    text-align: center;
+    width: 16px;
+    height: 16px;
+    line-height: 12px;
+}

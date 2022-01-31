@@ -1,0 +1,52 @@
+.updateaddress{
+    padding: 30px 0 0 0;
+}
+.updateaddressform_section ion-item{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    margin: 10px 0 15px 0;
+   
+}
+.updateaddressform_section ion-label{
+    padding: 0 0 0 16px;
+}
+.updateaddress_body{
+    padding: 0 20px;
+}
+.scroll-y{
+    overflow: hidden !important;
+}
+.updateaddress ion-title span {
+    color: #71d1f6; 
+    display: inline-block;
+    padding: 0 5px 0 0;
+}
+.updateaddress ion-title{
+    color:#0480d6
+}
+.inner-scroll.scroll-y{
+    overflow-y:hidden
+}
+.error_field p{
+    padding-top: 5px;
+    font-size: 13px;
+    color: #d11414;
+    margin: 0 0 10px 0px;
+    text-align: center;
+}
+.updateaddressform_section ion-item.ion-dirty{
+    margin: 10px 0 5px  0;
+}
+.updateaddressform_section ion-item.ion-valid{
+    margin: 10px 0 10px  0;
+}
+
+.updateaddressform_section  input.native-input.sc-ion-input-md{
+    padding: 0;
+}
+.updateaddressform_section .button-native{
+    border-radius: 20px !important;
+}
+ion-toast.toast_success{
+    text-align: center;
+}

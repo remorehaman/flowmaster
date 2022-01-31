@@ -1,0 +1,76 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <app-header></app-header>
+</ion-header>
+<ion-content>
+  <div class="login">
+    <div class="launching_screen">
+      <figure>
+        <img src="/assets/icon/headerimg.png">
+      </figure>
+    </div>
+    <div class="login_body"> 
+      <div class="loginform_section "> 
+        <ion-card style="padding: 20px 0px;">
+          <ion-icon name="arrow-back" style="text-align: center;width: 100%;font-size: 20px;"></ion-icon>
+          <ion-title style="text-align: center; padding: 10px 0 15px 0;">Login</ion-title>
+          <div class="icon_user">
+            <ion-icon name="person" style="border: 1px solid #3699de;border-radius: 50%; padding: 10px;font-size: 25px;color: #3699de;"></ion-icon>
+          </div>
+          <ion-card-content>
+            <form [formGroup]="userLoginModel.formGroup">
+              <ion-list>    
+                <ion-item>
+                  <ion-input type="username" formControlName="usernameControl" [(ngModel)]="userLoginModel.username" name="username" placeholder="username" 
+                    [required]="true"
+                    [attr.aria-invalid]="userLoginModel.formGroup.controls['usernameControl'].invalid && userLoginModel.formGroup.controls['usernameControl'].touched ? true : null" ></ion-input>
+                </ion-item>
+                <div class="error_field">
+                  <ng-container *ngIf="userLoginModel.formGroup.controls['usernameControl'].dirty">
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="userLoginModel.formGroup.controls['usernameControl'].dirty && userLoginModel.formGroup.controls['usernameControl'].hasError('required')">
+                      email is required!
+                    </p>
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="userLoginModel.formGroup.controls['usernameControl'].dirty && userLoginModel.formGroup.controls['usernameControl'].hasError('username')">
+                      Please enter a valid username address.
+                    </p>  
+                  </ng-container>     
+                </div>         
+               
+                <ion-item>
+                  <ion-input type="password" name="password" placeholder="password" style="padding: 0 !important;"  [type]="passwordType" clearOnEdit="false" [(ngModel)]="userLoginModel.password" formControlName="passwordControl" 
+                  [required]="true"
+                  [attr.aria-invalid]="userLoginModel.formGroup.controls['passwordControl'].invalid && userLoginModel.formGroup.controls['passwordControl'].touched ? true : null"></ion-input>
+                  <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+                </ion-item>
+                <div class="error_field">
+                  <ng-container *ngIf="userLoginModel.formGroup.controls['passwordControl'].dirty">
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="userLoginModel.formGroup.controls['passwordControl'].dirty && userLoginModel.formGroup.controls['passwordControl'].hasError('required')">
+                      Password is required!
+                    </p>
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="userLoginModel.formGroup.controls['passwordControl'].dirty && userLoginModel.formGroup.controls['passwordControl'].hasError('pattern')">
+                      Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.
+                    </p>
+                  </ng-container>
+                </div>        
+              </ion-list>
+              <div class="button button_submit">       
+                <ion-button type="submit" class="form-control"  id="loginnow"(click)="loginUser()" status="success"   style="border-radius: 20px;overflow: hidden;margin: 0 0 20px 0;height: 45px;" expand="block" >Login</ion-button>
+              </div>
+            </form>    
+            <div class="forgot_password">
+              <ul style="padding: 0;margin: 0;"> 
+                <li style="list-style: none;text-align: center; font-size: 13px;"><a  [routerLink] = "'/forgotpassword'"><ion-text>Forgot password</ion-text></a></li>
+                <li style="list-style: none;text-align: center; font-size: 13px;"> <ion-text>Don't have an account ? <a [routerLink] = "'/signup'">Sign up</a></ion-text></li>
+              </ul>
+            </div>   
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+  </ion-content>
+  <ion-footer>
+    <app-footer></app-footer>
+  </ion-footer>
+      
+     
+  

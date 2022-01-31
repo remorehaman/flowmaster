@@ -1,0 +1,23 @@
+a {text-decoration: none;}
+.heading {color: #3498DD; font-weight: 700;}
+.border{text-align: center; margin-top: 8px;}
+.border span{width: 80px;height: 2px;background: #e3a433; display: block;margin: 0 auto;}
+.related_products img{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    height: 120px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.related_products  h3{
+    text-align: center;
+    margin: 10px 0 20px 0;
+}
+.related_products_content h3{
+    font-size: 12px;
+    font-weight: 700;
+    color: #0480d6;
+    font-family: 'Open Sans', sans-serif;
+}

@@ -1,0 +1,29 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <app-header></app-header>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h4 class="heading">Frequently Asked Questions</h4><div class="border"><span></span></div>
+  <div style="margin-top: 16px;">
+    <ion-accordion-group>
+
+      <ion-accordion *ngFor="let faq of faqList" value="{{faq.faqId}}">
+        <ion-item slot="header">
+          <ion-label style="white-space: normal; color: #0480d6;">{{ faq.faqName }}</ion-label>
+        </ion-item>
+        <ion-list slot="content">
+          <ion-item lines="none">
+            <ion-label style="white-space: normal;">
+              <div [innerHtml]="faq.faqDescription"></div>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-accordion>
+
+    </ion-accordion-group>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-footer></app-footer>
+</ion-footer>

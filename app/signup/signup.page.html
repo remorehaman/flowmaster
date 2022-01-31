@@ -1,0 +1,125 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <app-header></app-header>
+</ion-header>
+<ion-content>
+  <div class="signup">
+    <div class="launching_screen">
+      <figure>
+        <img src="/assets/icon/headerimg.png">
+      </figure>
+    </div>
+    <div class="signup_body"> 
+      <div class="signupform_section "> 
+        <ion-card style="padding: 20px 0px;">
+          <ion-icon name="arrow-back" style="text-align: center;width: 100%;font-size: 20px;"></ion-icon>
+          <ion-title style="text-align: center; padding: 10px 0 15px 0;">Sign Up</ion-title>
+          <div class="icon_user">
+            <ion-icon name="person" style="border: 1px solid #3699de;border-radius: 50%; padding: 10px;font-size: 25px;color: #3699de;"></ion-icon>
+          </div>
+          <ion-card-content>
+            <form [formGroup]="usersModel.formGroup">
+              <ion-list>
+                <ion-item>        
+                    <ion-input type="text" formControlName="fullnameControl" [(ngModel)]="usersModel.fullname" name="fullname" placeholder="name" 
+                    [required]="true"
+                    [attr.aria-invalid]="usersModel.formGroup.controls['fullnameControl'].invalid && usersModel.formGroup.controls['fullnameControl'].touched ? true : null" ></ion-input>             
+                </ion-item>
+                <div class="error_field">
+                  <ng-container *ngIf="usersModel.formGroup.controls['fullnameControl'].dirty">
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="usersModel.formGroup.controls['fullnameControl'].dirty && usersModel.formGroup.controls['fullnameControl'].hasError('required')">
+                      Name is required!
+                    </p>
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="usersModel.formGroup.controls['fullnameControl'].dirty && usersModel.formGroup.controls['fullnameControl'].hasError('pattern')">
+                      Only alphanumeric characters are permitted!
+                    </p>                  
+                  </ng-container>         
+                </div>
+                <ion-item>
+                  <ion-input type="email" formControlName="emailControl" [(ngModel)]="usersModel.email" name="email" placeholder="email" 
+                    [required]="true"
+                    [attr.aria-invalid]="usersModel.formGroup.controls['emailControl'].invalid && usersModel.formGroup.controls['emailControl'].touched ? true : null" ></ion-input>
+                </ion-item>
+                <div class="error_field">
+                  <ng-container *ngIf="usersModel.formGroup.controls['emailControl'].dirty">
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="usersModel.formGroup.controls['emailControl'].dirty && usersModel.formGroup.controls['emailControl'].hasError('required')">
+                      Email is required!
+                    </p>
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="usersModel.formGroup.controls['emailControl'].dirty && usersModel.formGroup.controls['emailControl'].hasError('email')">
+                      Please enter a valid email address.
+                    </p>  
+                  </ng-container>     
+                </div>         
+                <ion-item>
+                  <ion-input type="number" placeholder="Phone Number" name="phone" [(ngModel)]="usersModel.phone" formControlName="phoneControl" 
+                  [required]="true"        
+                  [attr.aria-invalid]="usersModel.formGroup.controls['phoneControl'].invalid && usersModel.formGroup.controls['phoneControl'].touched ? true : null" ></ion-input>
+                </ion-item>
+                <div class="error_field">
+                  <ng-container *ngIf="usersModel.formGroup.controls['phoneControl'].dirty">
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="usersModel.formGroup.controls['phoneControl'].dirty && usersModel.formGroup.controls['phoneControl'].hasError('required')">
+                      Phone Number is required!
+                    </p>
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="usersModel.formGroup.controls['phoneControl'].dirty && usersModel.formGroup.controls['phoneControl'].hasError('pattern')">
+                      Please enter a valid phone number.
+                    </p>  
+                  </ng-container>      
+                </div>
+                <ion-item>
+                  <ion-input type="password" name="password" placeholder="password" style="padding: 0 !important;"  [type]="passwordType" clearOnEdit="false" [(ngModel)]="usersModel.password" formControlName="passwordControl" 
+                  [required]="true"
+                  [attr.aria-invalid]="usersModel.formGroup.controls['passwordControl'].invalid && usersModel.formGroup.controls['passwordControl'].touched ? true : null"></ion-input>
+                  <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+                </ion-item>
+                <div class="error_field">
+                  <ng-container *ngIf="usersModel.formGroup.controls['passwordControl'].dirty">
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="usersModel.formGroup.controls['passwordControl'].dirty && usersModel.formGroup.controls['passwordControl'].hasError('required')">
+                      Password is required!
+                    </p>
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="usersModel.formGroup.controls['passwordControl'].dirty && usersModel.formGroup.controls['passwordControl'].hasError('pattern')">
+                      Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.
+                    </p>
+                  </ng-container>
+                </div>
+
+                <ion-item>
+                  <ion-input type="confirmpassword" name="confirmpassword" placeholder="confirm password" style="padding: 0 !important;" [type]="confirmpasswordType" clearOnEdit="false" [(ngModel)]="usersModel.confirmPassword" formControlName="confirmPasswordControl" 
+                  [required]="true"
+                  [attr.aria-invalid]="usersModel.formGroup.controls['confirmPasswordControl'].invalid && usersModel.formGroup.controls['confirmPasswordControl'].touched ? true : null"></ion-input>
+                  <ion-icon item-end [name]="confirmpasswordIcon" class="confirmpasswordIcon" (click)='hideShowConfirmPassword()'></ion-icon>  
+                </ion-item>
+                <div class="error_field">
+                  <ng-container *ngIf="usersModel.formGroup.controls['confirmPasswordControl'].dirty">
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="usersModel.formGroup.controls['confirmPasswordControl'].dirty && usersModel.formGroup.controls['confirmPasswordControl'].hasError('required')">
+                      Confirm Password is required!
+                    </p>
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="usersModel.formGroup.controls['confirmPasswordControl'].dirty && usersModel.formGroup.controls['confirmPasswordControl'].hasError('pattern')">
+                      Only alphanumeric characters are permitted!
+                    </p>
+                    <p class="caption status-danger" style="padding-top: 5px;" *ngIf="usersModel.formGroup.controls['confirmPasswordControl'].dirty && usersModel.formGroup.controls['confirmPasswordControl'].hasError('mustMatch')">
+                      Password and confirm password are not same.
+                    </p>
+                  </ng-container>    
+                </div>          
+              </ion-list>
+              <div class="button button_submit">
+               
+                <ion-button type="submit" class="form-control"  id="signupnow"(click)="signUp()"status="success" [disabled]="!usersModel.formGroup.valid"  style="border-radius: 20px;overflow: hidden;margin: 0 0 20px 0;height: 45px;" expand="block" >Sign Up</ion-button>
+              </div>
+            </form>    
+            <div class="forgot_password">
+              <ul style="padding: 0;margin: 0;"> 
+                <li style="list-style: none;text-align: center; font-size: 13px;"> <ion-text>Already have an account ? Sign in</ion-text></li>
+              </ul>
+            </div>   
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+  </ion-content>
+  <ion-footer>
+    <app-footer></app-footer>
+  </ion-footer>
+      
+     
+  

@@ -1,0 +1,15 @@
+<div class="related_products" >
+  <h3 class="heading">Other Products</h3><div class="border"><span></span></div>
+  <ion-grid style="margin-top: 16px;">
+    <ion-row>
+      <ion-col size="6" *ngFor="let related_products of relatedProduct">
+        <a [routerLink] = "['/productdetail',related_products.permalink]">
+          <img src="{{related_products?.imgSrc}}">
+          <div class="related_products_content">
+            <h3>{{related_products?.productName}}</h3>
+          </div>
+        </a>
+      </ion-col>  
+    </ion-row>
+  </ion-grid>
+</div>
